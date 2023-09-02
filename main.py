@@ -1,13 +1,15 @@
+import datetime
+import pandas as pd
+import logging
+import json
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-import datetime
-import pandas as pd
 from openpyxl import Workbook
-import logging
+
 
 PATH = "chromedriver.exe"
 service = ChromeService(executable_path=PATH)
@@ -74,7 +76,8 @@ def read_lva(lva_number, semester_jahr=datetime.date.today().year, semester_symb
     # create pandas dataframe
     df = pd.DataFrame(exam_lst, columns=header)
     # name dataframe
-    df.name = name
+    # df.name = name
+    df.name = lva_number
     if not exam_lst or not header:
         logging.warning(
             f"Either no exams are specified or LVA-Number is wrong! (LVA-NR = {lva_number}, URL = {base_url})")
