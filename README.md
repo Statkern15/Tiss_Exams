@@ -3,7 +3,7 @@ Diese Skript dient zum auslesen der Prüfungstermine im TISS.
 
 # Usage
 Verwendeten Pakete sind in requirements.txt zu finden. 
-Installation unter Windows mittels 'pip install requirements.txt'.
+Installation unter Windows mittels 'pip install -r requirements.txt'.
 
 Das Skript verwendet Selenium with Python um die Prüfungsdaten auszulesen. Hierfür muss ein Browse-Driver installiert werden. 
 Standardmäßig wird Chrome verwendet. 
