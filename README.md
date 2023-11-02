@@ -11,6 +11,10 @@ Die benötigten Driver können hier gefunden werden.(https://selenium-python.rea
 
 Die LVA Nummern werde aus einer Datei ausgelesen (LVA-Nummern) und müssen dem Format in der XLSX-Datei entsprechen. 
 
+# ID
+Da die Tabelle mit den Prüfungsterminen dynamisch erzeugt wird muss jedes Semester die ID der Tabelle überprüft werden. Hierzu muss das Entwicklertool verwendet werden. Mit dessen hilfe kann die ID gefunden werden. Im folgenden Bild ist ein Beispiel hierfür zu sehen. Diese Id muss dann im main.py file der variable 'id' zugeordnet werden.
+![id_example](/img/find_id.PNG)
+
 # Log Datei
 Hier werden die LVA-Nummern abgelegt bei denen es keine Prüfungstermine gibt oder bei welchen die LVA Nummer falsch sind. 
 
