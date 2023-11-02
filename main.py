@@ -42,29 +42,31 @@ def read_lva(lva_number, semester_jahr=datetime.date.today().year, semester_symb
     wait = WebDriverWait(driver, 5)
     try:
         __ = wait.until(EC.presence_of_element_located(
-            [By.XPATH, f"//*[@id={str(id)}_data]"]))
+            [By.XPATH, f"//*[@id='{str(id)}_data']"]))
     except TimeoutException as exception:
         pass
     # get table header length
     header_length = len(driver.find_elements(
-        "xpath", f"//*[@id={str(id)}_header]/tr[1]/th"))
+        "xpath", f"//*[@id='{str(id)}_head']/tr[1]/th"))
+    print('length')
+    print(header_length)
     # loop over header
     for title in range(1, header_length+1):
         value = driver.find_element(
-            "xpath", f"//*[@id={str(id)}_header]/tr[1]/th[{str(title)}]").text
+            "xpath", f"//*[@id='{str(id)}_head']/tr[1]/th[{str(title)}]").text
         header.append(value)
     # count number of rows
     rows = len(driver.find_elements(
-        "xpath", f"//*[@id={str(id)}_data]/tr"))
+        "xpath", f"//*[@id='{str(id)}_data']/tr"))
     # count number of columns
     columns = len(driver.find_elements(
-        "xpath", f"//*[@id={str(id)}_data]/tr[1]/td"))
+        "xpath", f"//*[@id='{str(id)}_data']/tr[1]/td"))
     # loop over the table
     for r in range(1, rows+1):
         single_exam = []
         for c in range(1, columns+1):
             value = driver.find_element(
-                "xpath", f"//*[@id={str(id)}_data]/tr[{str(r)}]/td[{str(c)}]").text
+                "xpath", f"//*[@id='{str(id)}_data']/tr[{str(r)}]/td[{str(c)}]").text
             single_exam.append(value)
         exam_lst.append(single_exam)
     # get LVA name
